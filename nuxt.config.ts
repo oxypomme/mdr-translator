@@ -5,9 +5,13 @@ export default defineNuxtConfig({
     transpile: ["vuetify"],
   },
   modules: ["@pinia/nuxt"],
-  // TODO: CORS
   runtimeConfig: {
-    deeplApiUrl: "",
     deeplApiKey: "",
+  },
+  app: {
+    head: {
+      title: "MDR Translator",
+      link: [{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],
+    },
   },
 });
