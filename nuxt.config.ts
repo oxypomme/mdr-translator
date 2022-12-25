@@ -4,4 +4,10 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  modules: ["@pinia/nuxt"],
+  // TODO: CORS
+  runtimeConfig: {
+    deeplApiUrl: "",
+    deeplApiKey: "",
+  },
 });

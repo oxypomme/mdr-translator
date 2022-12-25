@@ -18,6 +18,9 @@
 		]
 	},
 	"dependencies": {
+		"@pinia/nuxt": "^0.4.6",
+		"deepl-node": "^1.7.2",
+		"pinia": "^2.0.28",
 		"sass": "^1.57.1",
 		"vuetify": "^3.0.6"
 	},
