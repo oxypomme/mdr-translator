@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     deeplApiKey: "",
   },
   app: {
+    // TODO: Social previews
     head: {
       title: "MDR Translator",
       link: [{ rel: "icon", href: "/favicon.svg", type: "image/svg+xml" }],

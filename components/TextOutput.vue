@@ -25,6 +25,8 @@
         variant="outlined"
         readonly
       ></v-textarea>
+
+      <h4>Language count :</h4>
       <v-slider
         v-model="maxLanguageCount"
         :min="1"
