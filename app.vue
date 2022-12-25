@@ -3,7 +3,14 @@
     <v-app-bar>
       <v-toolbar-title>MDR Translator</v-toolbar-title>
 
-      <v-btn icon @click="toggleTheme">
+      <v-btn
+        href="https://github.com/oxypomme/mdr-translator"
+        title="See project on GitHub"
+        icon
+      >
+        <v-icon icon="mdi-github" />
+      </v-btn>
+      <v-btn icon title="Change theme" @click="toggleTheme">
         <v-icon :icon="themeIcon" />
       </v-btn>
     </v-app-bar>
