@@ -6,6 +6,8 @@ import {
 } from "deepl-node";
 import { createError } from "h3";
 
+const FREE_LIMIT = 500000;
+
 const isLanguageCode = <T extends SourceLanguageCode | TargetLanguageCode>(
   data: unknown,
   languages: readonly Language[]
@@ -61,13 +63,12 @@ export default defineEventHandler(async (event) => {
   }
 
   const usage = await deepl.getUsage();
-  if (
-    (usage.character?.count ?? 0) +
-      (Array.isArray(body)
-        ? body.reduce((p, c) => p + c.length, 0)
-        : body.length) >=
-    (usage.character?.limit ?? 0)
-  ) {
+  const dataLength = Array.isArray(body)
+    ? body.reduce((p, c) => p + c.length, 0)
+    : body.length;
+  // Defaulting to Free tier
+  const newCount = (usage.character?.count ?? FREE_LIMIT) + dataLength;
+  if (newCount >= (usage.character?.limit ?? FREE_LIMIT)) {
     throw createError({
       message: "Maximum usage exceeded",
       statusCode: 400,
